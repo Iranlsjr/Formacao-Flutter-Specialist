@@ -31,7 +31,7 @@ void main(List<String> arguments) {
   print("------------------------------------------------------");
   print("Converte String para inteiro");
   print((int.parse("10")));
-  print(int.parse("teste"));
+  //print(int.parse("teste"));
   print((int.tryParse("teste")));
 
   //print('Hello world: ${meu_app.calculate()}!');

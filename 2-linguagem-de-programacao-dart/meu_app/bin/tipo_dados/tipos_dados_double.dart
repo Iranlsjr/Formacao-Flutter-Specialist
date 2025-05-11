@@ -1,0 +1,40 @@
+void main(List<String> arguments) {
+  double numero1 = 10.10;
+  var numero2 = 11.11;
+
+  print("Remove o ponto flutuante");
+  print(numero1.truncate());
+  print(numero2.truncate());
+  print("------------------------------------------------------");
+  print("Converto para inteiro.");
+  print(numero1.toInt());
+  print(numero2.toInt());
+  print("------------------------------------------------------");
+  print("Arredonda para cima");
+  print(numero1.ceil());
+  print(numero2.ceil());
+  print("------------------------------------------------------");
+  print("Arredonda para baixo");
+  print(numero1.floor());
+  print(numero2.floor());
+  print("------------------------------------------------------");
+  print("Retorna se o número é finito");
+  print(numero1.isFinite);
+  print(numero2.isFinite);
+  print("Retorna se o número é infinito");
+  print(numero1.isInfinite);
+  print(numero2.isInfinite);
+  print("------------------------------------------------------");
+  print("Retorna se o número não é um número válido");
+  print(numero1.isNaN);
+  print(numero2.isNaN);
+  print("------------------------------------------------------");
+  print("Retonra se o número 'negativo");
+  print((numero1).isNegative);
+  print((numero1 * -1).isNegative);
+  print("------------------------------------------------------");
+  print("Converte String o para double");
+  print(double.parse("10"));
+  //print(double.parse("teste"));
+  print(double.tryParse("teste"));
+}
