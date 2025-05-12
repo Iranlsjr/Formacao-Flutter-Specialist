@@ -1,8 +1,5 @@
-//import 'package:meu_app/meu_app.dart' as meu_app;
-
-
 import 'dart:convert';
-import 'dart:io' show stdin;
+import 'dart:io';
 
 void main(List<String> arguments) {
   var opcao = "";
@@ -19,5 +16,4 @@ void main(List<String> arguments) {
     }
   } while (opcao != "S");
   print(acumulador);
-  //print('Hello world: ${meu_app.calculate()}!');
 }
