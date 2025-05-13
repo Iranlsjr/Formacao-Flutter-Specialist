@@ -1,6 +1,7 @@
-class Pessoa {
+class PessoaFisica {
   String _nome = "";
   String _endereco = "";
+  String _cpf = "";
 
   void setNome(String nome) {
     _nome = nome;
@@ -12,6 +13,7 @@ class Pessoa {
     //return _nome.toUpperCase();
   }
 
+  // Endereço
   void setEndereco(String endereco) {
     _endereco = endereco;
   }
@@ -20,15 +22,26 @@ class Pessoa {
     return _endereco;
   }
 
+  //CPF
+  void setCpf(String cpf) {
+    _cpf = cpf;
+  }
+
+  String getCpf() {
+    return _cpf;
+  }
+
   //Construtor
-  Pessoa(String nome, String endereco) {
+
+  PessoaFisica(String nome, String endereco, String cpf) {
     _nome = nome;
     _endereco = endereco;
+    _cpf = cpf;
   }
-  
+
   //Sobrescrever
   @override
   String toString() {
-    return {"Nome": _nome, "Endereço": _endereco}.toString();
+    return {"Nome": _nome, "Endereço": _endereco, "CPF": _cpf}.toString();
   }
 }
