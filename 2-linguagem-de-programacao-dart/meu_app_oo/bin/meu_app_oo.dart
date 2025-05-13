@@ -1,6 +1,6 @@
 import 'package:meu_app_oo/classes/pessoa.dart';
-import 'package:meu_app_oo/classes/pessoaFisica.dart';
-import 'package:meu_app_oo/classes/pessoaJuridica.dart';
+import 'package:meu_app_oo/classes/pessoa_fisica.dart';
+import 'package:meu_app_oo/classes/pessoa_juridica.dart';
 
 void main(List<String> arguments) {
   //método Construtor.
