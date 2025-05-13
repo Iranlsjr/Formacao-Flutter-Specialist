@@ -1,27 +1,10 @@
-class PessoaFisica {
-  String _nome = "";
-  String _endereco = "";
+import 'package:meu_app_oo/classes/pessoa_abstract.dart';
+import 'package:meu_app_oo/enum/tipo_notificacao.dart';
+
+class PessoaFisica extends Pessoa {
   String _cpf = "";
 
-  void setNome(String nome) {
-    _nome = nome;
-  }
-
   //Criando Get
-  String getNome() {
-    return _nome;
-    //return _nome.toUpperCase();
-  }
-
-  // Endereço
-  void setEndereco(String endereco) {
-    _endereco = endereco;
-  }
-
-  String getEndereco() {
-    return _endereco;
-  }
-
   //CPF
   void setCpf(String cpf) {
     _cpf = cpf;
@@ -32,16 +15,19 @@ class PessoaFisica {
   }
 
   //Construtor
-
-  PessoaFisica(String nome, String endereco, String cpf) {
-    _nome = nome;
-    _endereco = endereco;
+  PessoaFisica(String nome, String endereco, String cpf, {TipoNotificacao tipoNotificacao= TipoNotificacao.nenhum})
+    : super(nome, endereco, tipoNotificacao:  tipoNotificacao) {
     _cpf = cpf;
   }
 
   //Sobrescrever
   @override
   String toString() {
-    return {"Nome": _nome, "Endereço": _endereco, "CPF": _cpf}.toString();
+    return {
+      "Nome": getNome(),
+      "Endereço": getEndereco(),
+      "CPF": _cpf,
+      "TipoNotificacao": getTipoNotificacao(),
+    }.toString();
   }
 }
