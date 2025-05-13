@@ -20,6 +20,11 @@ class Pessoa {
     return _endereco;
   }
 
+  //Construtor
+  Pessoa(String nome, String endereco) {
+    _nome = nome;
+    _endereco = endereco;
+  }
   //Sobrescrever
   @override
   String toString() {
