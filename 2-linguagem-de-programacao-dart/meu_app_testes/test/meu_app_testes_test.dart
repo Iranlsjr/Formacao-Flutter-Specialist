@@ -70,4 +70,20 @@ void main() {
       }
     },
   );
+
+
+//convertToUpper
+  test('Testar conversão para uppercase', () {
+    expect(app.convertToUpper("ola"), equals("OLA"));
+  });
+// Converte iginorando case
+  test('Testar conversão para uppercase tese 2', () {
+    expect(app.convertToUpper("ola"), equalsIgnoringCase("ola"));
+  });
+
+
+  // Retorna valor
+    test('Valor maior que 50', () {
+    expect(app.retornaValor(50), greaterThan(49));
+  });
 }
