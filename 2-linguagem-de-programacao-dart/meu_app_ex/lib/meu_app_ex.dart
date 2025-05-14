@@ -1,15 +1,15 @@
 import 'dart:io';
 
-import 'package:meu_app_ex/exception/nome-invalido_exception.dart';
+import 'package:meu_app_ex/exception/Nome-invalido_exception.dart';
 import 'package:meu_app_ex/models/aluno.dart';
 import 'package:meu_app_ex/models/console_utils.dart';
 
 void execute() {
   print("Bem vindo ao sistema de notas.");
-  String nome = consoleUtils.lerStringComTexto("Digite o nome do aluno(a)");
+  String nome = ConsoleUtils.lerStringComTexto("Digite o nome do aluno(a)");
   try {
     if (nome.trim() == "") {
-      throw nomeInvalidoException();
+      throw NomeInvalidoException();
     }
   } catch (nomeInvalidoException) {
     print(nomeInvalidoException);
@@ -19,7 +19,7 @@ void execute() {
   var aluno = Aluno(nome);
   double? nota;
   do {
-    nota = consoleUtils.lerDoubleComTextoComSaida(
+    nota = ConsoleUtils.lerDoubleComTextoComSaida(
       "Digite a nota ou 'S' para sair",
       "S",
     );

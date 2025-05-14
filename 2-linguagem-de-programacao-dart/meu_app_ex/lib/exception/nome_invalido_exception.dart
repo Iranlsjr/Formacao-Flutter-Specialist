@@ -1,4 +1,4 @@
-class nomeInvalidoException implements Exception{
+class NomeInvalidoException implements Exception{
  String error() => "Nome inválido.";
 
  @override
