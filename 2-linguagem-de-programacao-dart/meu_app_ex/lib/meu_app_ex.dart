@@ -5,17 +5,20 @@ void execute() {
   print("Bem vindo ao sistema de notas.");
   String nome = consoleUtils.lerStringComTexto("Digite o nome do aluno(a)");
   var aluno = Aluno(nome);
+  double? nota;
+  do {
+    nota = consoleUtils.lerDoubleComTextoComSaida("Digite a nota ou 'S' para sair", "S");
+    if (nota != null) {
+      aluno.adicionarNota(nota);
+    }
+  } while (nota != null);
+  print(aluno.getNotas());
+  print("A média do aluno foi: ${aluno.retornaMedia()}");
+
+if (aluno.aprovado(7)){
+  print("O aluno(a) ${aluno.getNome()} está aprovado(a)!");
+}else{
+  print("O aluno(a) ${aluno.getNome()} está reprovado(a)!");
+
 }
-
-
- // print("Sistema de Notas: ");
-  
-  //Tratamento de erro
-  //try {
-   // double numero = double.parse(line ?? "");
-   // print(numero);
-  //} catch (e) {
-   // print("Número Inválido, seu digito foi: '$line'");
-  //}finally{
-   // print("Executando finally");
-  //}
+}
