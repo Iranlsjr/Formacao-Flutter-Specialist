@@ -14,9 +14,6 @@ void execute() {
   } catch (nomeInvalidoException) {
     print(nomeInvalidoException);
     exit(0);
-  } catch (e) {
-    print(e);
-    exit(0);
   }
 
   var aluno = Aluno(nome);
