@@ -18,35 +18,35 @@ void calculadoraImc() {
   double imc = peso / (altura * altura);
   if (imc < 16) {
     print(
-      "$nome seu IMC é de : ${imc.toStringAsFixed(2)}. Você está com magreza grave.",
+      "$nome seu IMC é de : ${imc.toStringAsFixed(2)} Você está com magreza grave.",
     );
   } else if ((imc > 16) && (imc < 17)) {
     print(
-      "$nome seu IMC é de : ${imc.toStringAsFixed(2)}. Você está com magreza moderada.",
+      "$nome seu IMC é de : ${imc.toStringAsFixed(2)} Você está com magreza moderada.",
     );
   } else if ((imc > 17) && (imc < 18.5)) {
     print(
-      "$nome seu IMC é de : ${imc.toStringAsFixed(2)}. Você está com magreza leve.",
+      "$nome seu IMC é de : ${imc.toStringAsFixed(2)} Você está com magreza leve.",
     );
   } else if ((imc > 18.5) && (imc < 25)) {
     print(
-      "$nome seu IMC é de : ${imc.toStringAsFixed(2)}. Você está saudável.",
+      "$nome seu IMC é de : ${imc.toStringAsFixed(2)} Você está saudável.",
     );
   } else if ((imc > 25) && (imc < 30)) {
     print(
-      "$nome seu IMC é de : ${imc.toStringAsFixed(2)}. Você está com sobrepeso.",
+      "$nome seu IMC é de : ${imc.toStringAsFixed(2)} Você está com sobrepeso.",
     );
   } else if ((imc > 30) && (imc < 35)) {
     print(
-      "$nome seu IMC é de : ${imc.toStringAsFixed(2)}. Você está com obesidade Grau I.",
+      "$nome seu IMC é de : ${imc.toStringAsFixed(2)} Você está com obesidade Grau I.",
     );
   } else if ((imc > 35) && (imc < 40)) {
     print(
-      "$nome seu IMC é de : ${imc.toStringAsFixed(2)}. Você está com Obesidade II(severa).",
+      "$nome seu IMC é de : ${imc.toStringAsFixed(2)} Você está com Obesidade II(severa).",
     );
   } else {
     print(
-      "$nome seu IMC é de : ${imc.toStringAsFixed(2)}. Você está com obesidade Grau III(mórbida).",
+      "$nome seu IMC é de : ${imc.toStringAsFixed(2)} Você está com obesidade Grau III(mórbida).",
     );
   }
   print("------------------------------------------------------------");
