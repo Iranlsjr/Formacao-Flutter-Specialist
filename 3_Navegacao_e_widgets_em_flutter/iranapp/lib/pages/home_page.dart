@@ -11,24 +11,52 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   var numeroGerado = 0;
-
-
+  // Quantidade de vezes que botao foi clicado
+  var quantidadeClique = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Meu App Mega", 
-     // style: GoogleFonts.pacifico(), 
-      )),
+      appBar: AppBar(
+        title: Text(
+          "Meu App Mega",
+          // style: GoogleFonts.pacifico(),
+        ),
+      ),
       //Corpo do app
-      body: Center(child: Text(numeroGerado.toString(), 
-      style: GoogleFonts.acme(fontSize: 20)
-      )),
+      body: Container(
+          width: double.infinity,
+        margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text("Ações do usuário",
+            style: GoogleFonts.acme(fontSize: 20),),
+            Text(
+              "Foi clicado $quantidadeClique vezes",
+              style: GoogleFonts.acme(fontSize: 20),
+            ),
+        
+            Text(
+              "O número gerado é: $numeroGerado",
+              style: GoogleFonts.acme(fontSize: 20),
+            ),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.add_box),
+        backgroundColor: Colors.red, //Cor de fundo do botão
+        child: const Icon(
+          Icons.add_box,
+          color: Colors.white, //Cor o ícone do botão
+        ),
         onPressed: () {
           setState(() {
-            numeroGerado = GeradorNumeroAleatorioService.gerarnumeroAleatorio(60);
+            quantidadeClique = quantidadeClique + 1;
+            numeroGerado = GeradorNumeroAleatorioService.gerarnumeroAleatorio(
+              60,
+            );
           });
         },
       ),
