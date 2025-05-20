@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(appBarTheme: AppBarTheme(backgroundColor: Colors.red),
-      textTheme: GoogleFonts.pacificoTextTheme() //Aplica em todo o texto
+      textTheme: GoogleFonts.robotoTextTheme() //Aplica em todo o texto
       ),
       home: LoginPage(),
     );
