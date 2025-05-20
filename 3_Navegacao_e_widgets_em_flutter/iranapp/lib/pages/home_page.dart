@@ -25,52 +25,77 @@ class _HomePageState extends State<HomePage> {
       ),
       //Corpo do app
       body: Container(
-          width: double.infinity,
+        width: double.infinity,
         margin: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            Text("Ações do usuário",
-            style: GoogleFonts.acme(fontSize: 20),),
-            Text(
-              "Foi clicado $quantidadeClique vezes",
-              style: GoogleFonts.acme(fontSize: 20),
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                color: Colors.cyan,
+                child: Text("Ações do usuário",style: GoogleFonts.acme(fontSize: 20),
+                ),
+              ),
             ),
-        
-            Text(
-              "O número gerado é: $numeroGerado",
-              style: GoogleFonts.acme(fontSize: 20),
-            ),
-            Row(
-              //mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [            
-                Container(
-                  color: Colors.red,
-              child: Text(
-              "10",
-              style: GoogleFonts.acme(fontSize: 20),
+            Expanded(
+              flex: 3,
+              child: Container(
+                width: double.infinity,
+                color: Colors.orange,
+                child: Text(
+                  "Foi clicado $quantidadeClique vezes",
+                  style: GoogleFonts.acme(fontSize: 20),
+                ),
+              ),
             ),
 
+            Container(
+              width: double.infinity,
+              color: Colors.indigo,
+              child: Text(
+                "O número gerado é: $numeroGerado",
+                style: GoogleFonts.acme(fontSize: 20),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                color: Colors.grey,
+                child: Row(
+                  //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Expanded(
+                      flex: 1,
+                      child: Container(
+                        color: Colors.red,
+                        child: Text("Nome:", style: GoogleFonts.acme(fontSize: 20)),
+                      ),
+                    ),
+                
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        color: Colors.blue,
+                        child: Text(
+                          "Iran Lourenço",
+                          style: GoogleFonts.acme(fontSize: 20),
+                        ),
+                      ),
+                    ),
+                
+                    Expanded(
+                      flex: 2,
+                      child: Container(
+                        color: Colors.amber,
+                        child: Text("30", style: GoogleFonts.acme(fontSize: 20)),
+                      ),
+                    ),
+                  ],
                 ),
-            
-            Container(
-              color: Colors.blue,
-            child: Text(
-              "20",
-              style: GoogleFonts.acme(fontSize: 20),
+              ),
             ),
-            ),
-            
-            Container(
-              color: Colors.amber,
-             child: Text(
-              "30",
-              style: GoogleFonts.acme(fontSize: 20),
-            ),
-            ),
-            ],
-            )
           ],
         ),
       ),
