@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(appBarTheme: AppBarTheme(backgroundColor: Colors.red),
+      theme: ThemeData(appBarTheme: AppBarTheme(backgroundColor: Colors.blue),
       textTheme: GoogleFonts.robotoTextTheme() //Aplica em todo o texto
       ),
       home: LoginPage(),
