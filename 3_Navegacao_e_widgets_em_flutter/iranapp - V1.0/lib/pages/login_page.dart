@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iranapp/pages/main_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -147,14 +148,8 @@ class _LoginPageState extends State<LoginPage> {
                       width: double.infinity,
                       child: TextButton(
                         onPressed: () {
-                          if (emailController.text.trim() ==
-                                  "iran.lourenco@gmail.com" &&
-                              senha == "123") {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Text("Login realizado com sucesso"),
-                              ),
-                            );
+                          if (emailController.text.trim() == "email@email.com" && senha == "123") {
+                            Navigator.pushReplacement( context,   MaterialPageRoute( builder: (context) => MainPage()));
                           } else if (emailController.text == "") {
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(content: Text("Digite o seu e-mail")),
