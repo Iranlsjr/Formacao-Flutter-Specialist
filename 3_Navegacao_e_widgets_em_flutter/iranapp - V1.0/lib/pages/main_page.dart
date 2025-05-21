@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:iranapp/pages/configuracoes.dart';
+import 'package:iranapp/pages/dados_cadastrais.dart';
+import 'package:iranapp/pages/termos_de_uso_e_privacidade.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -23,7 +26,10 @@ class _MainPageState extends State<MainPage> {
                 padding: EdgeInsets.symmetric(vertical: 5),
                 width: double.infinity,
                 child: Text("Dados Cadastrais")),
-              onTap: (){},),
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => DadosCadastraisPage(texto: "Dados Cadastrais",  dados: ["Nome", "Endereco"]) ));
+              },),
             Divider(),
 
                         InkWell(
@@ -31,7 +37,10 @@ class _MainPageState extends State<MainPage> {
                 padding: EdgeInsets.symmetric(vertical: 5),
                 width: double.infinity,
                 child: Text("Termos de Uso E Privacidade")),
-              onTap: (){},),
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => TermosDeUsoEPrivacidade()));
+              },),
             
             Divider(),
             SizedBox(height: 10,),
@@ -40,7 +49,10 @@ class _MainPageState extends State<MainPage> {
                 padding: EdgeInsets.symmetric(vertical: 5),
                 width: double.infinity,
                 child: Text("Configurações")),
-              onTap: (){},),
+              onTap: (){
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Configuracoes()));
+              },),
             Divider(),
             ],
         ),
