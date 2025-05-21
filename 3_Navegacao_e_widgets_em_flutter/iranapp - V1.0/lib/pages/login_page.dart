@@ -1,4 +1,3 @@
-import 'dart:async';
 
 import 'package:flutter/material.dart';
 
@@ -12,6 +11,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   String email = "";
   String senha = "";
+  bool isObscureText = true; 
 
   @override
   Widget build(BuildContext context) {
@@ -95,6 +95,7 @@ class _LoginPageState extends State<LoginPage> {
                     height: 30,
                     alignment: Alignment.center,
                     child: TextField(
+                      obscureText: isObscureText,
                       onChanged: (value) {
                         senha = value;
                       },
@@ -114,9 +115,16 @@ class _LoginPageState extends State<LoginPage> {
                           color: const Color.fromARGB(255, 63, 133, 26),
                         ),
 
-                        suffixIcon: Icon(
-                          Icons.visibility,
-                          color: const Color.fromARGB(255, 63, 133, 26),
+                        suffixIcon: InkWell(
+                          onTap: (){
+                            setState(() {
+                            isObscureText = !isObscureText; 
+                            });
+                          },
+                          child: Icon(
+                            isObscureText ?  Icons.visibility_off : Icons.visibility,
+                            color: const Color.fromARGB(255, 63, 133, 26),
+                          ),
                         ),
                       ),
                       //children: [
