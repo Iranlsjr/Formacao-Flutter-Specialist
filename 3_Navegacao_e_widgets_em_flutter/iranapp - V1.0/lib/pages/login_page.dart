@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -9,12 +8,10 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  var emailController = TextEditingController();
+  var emailController = TextEditingController(text: "");
   //TextEditingController senha = TextEditingController()
   String senha = "";
-  bool isObscureText = true; 
-
-
+  bool isObscureText = true;
 
   @override
   Widget build(BuildContext context) {
@@ -66,8 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                     alignment: Alignment.center,
                     child: TextField(
                       controller: emailController,
-                      onChanged: (value) {
-                      },
+                      onChanged: (value) {},
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 0),
@@ -119,13 +115,15 @@ class _LoginPageState extends State<LoginPage> {
                         ),
 
                         suffixIcon: InkWell(
-                          onTap: (){
+                          onTap: () {
                             setState(() {
-                            isObscureText = !isObscureText; 
+                              isObscureText = !isObscureText;
                             });
                           },
                           child: Icon(
-                            isObscureText ?  Icons.visibility_off : Icons.visibility,
+                            isObscureText
+                                ? Icons.visibility_off
+                                : Icons.visibility,
                             color: const Color.fromARGB(255, 63, 133, 26),
                           ),
                         ),
@@ -149,8 +147,29 @@ class _LoginPageState extends State<LoginPage> {
                       width: double.infinity,
                       child: TextButton(
                         onPressed: () {
-                          debugPrint(emailController.text);
-                          debugPrint(senha);
+                          if (emailController.text.trim() ==
+                                  "iran.lourenco@gmail.com" &&
+                              senha == "123") {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text("Login realizado com sucesso"),
+                              ),
+                            );
+                          } else if (emailController.text == "") {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Digite o seu e-mail")),
+                            );
+                          } else if (senha == "") {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("Digite a senha")),
+                            );
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text("Email ou Senha incorreto"),
+                              ),
+                            );
+                          }
                         },
                         style: ButtonStyle(
                           backgroundColor: WidgetStateProperty.all(
