@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:iranapp/pages/configuracoes.dart';
 import 'package:iranapp/pages/dados_cadastrais.dart';
+import 'package:iranapp/pages/pagina1.dart';
+import 'package:iranapp/pages/pagina2.dart';
+import 'package:iranapp/pages/pagina3.dart';
 import 'package:iranapp/pages/termos_de_uso_e_privacidade.dart';
 
 class MainPage extends StatefulWidget {
@@ -15,6 +18,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return  SafeArea(
       child: Scaffold(appBar: AppBar(title: Text("Main Page")),
+      
       drawer: Drawer(child: Padding(
         padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
         child: Column(
@@ -56,7 +60,21 @@ class _MainPageState extends State<MainPage> {
             Divider(),
             ],
         ),
-      ),),
+      ),
+      ),
+      body: Column(
+        children: [
+          Expanded(
+            child: PageView(
+              scrollDirection: Axis.vertical,
+              children: [
+              Pagina1Pages(),
+              Pagina2Pages(),
+              Pagina3Pages()
+            ],),
+          ),
+        ],
+      ),
       ),
     );
   }
