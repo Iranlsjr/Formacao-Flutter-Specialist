@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -8,6 +10,9 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String email = "";
+  String senha = "";
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -16,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
         body: SingleChildScrollView(
           child: ConstrainedBox(
             constraints: BoxConstraints(
-              maxHeight:  MediaQuery.of(context).size.height
+              maxHeight: MediaQuery.of(context).size.height,
             ),
             child: SizedBox(
               width: double.infinity,
@@ -48,7 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                     "Faça seu login e make the change_",
                     style: TextStyle(color: Colors.white, fontSize: 16),
                   ),
-                  //Email
+                  //CAMPO EMAIL
                   SizedBox(height: 40),
                   Container(
                     width: double.infinity,
@@ -57,6 +62,9 @@ class _LoginPageState extends State<LoginPage> {
                     height: 30,
                     alignment: Alignment.center,
                     child: TextField(
+                      onChanged: (value) {
+                        email = value;
+                      },
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 0),
@@ -87,8 +95,10 @@ class _LoginPageState extends State<LoginPage> {
                     height: 30,
                     alignment: Alignment.center,
                     child: TextField(
+                      onChanged: (value) {
+                        senha = value;
+                      },
                       style: TextStyle(color: Colors.white),
-
                       decoration: InputDecoration(
                         contentPadding: EdgeInsets.only(top: 0),
                         focusedBorder: UnderlineInputBorder(
@@ -98,12 +108,12 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                         hintText: "Senha",
                         hintStyle: TextStyle(color: Colors.white),
-            
+
                         prefixIcon: Icon(
                           Icons.lock,
                           color: const Color.fromARGB(255, 63, 133, 26),
                         ),
-            
+
                         suffixIcon: Icon(
                           Icons.visibility,
                           color: const Color.fromARGB(255, 63, 133, 26),
@@ -115,19 +125,22 @@ class _LoginPageState extends State<LoginPage> {
                       //],
                     ),
                   ),
-            
+
                   //botão
                   SizedBox(height: 30),
                   Container(
                     width: double.infinity,
                     margin: EdgeInsets.symmetric(horizontal: 30),
-            
+
                     height: 40,
                     alignment: Alignment.center,
                     child: SizedBox(
                       width: double.infinity,
                       child: TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          print(email);
+                          print(senha);
+                        },
                         style: ButtonStyle(
                           backgroundColor: WidgetStateProperty.all(
                             const Color.fromARGB(255, 63, 133, 26),
@@ -139,7 +152,7 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
-            
+
                     //                child: Text("Login", style: TextStyle(color: Colors.white, fontSize: 20),),
                   ),
                   SizedBox(height: 20),
@@ -157,7 +170,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-            
+
                   //CADASTRA-SE
                   SizedBox(height: 10),
                   Container(
