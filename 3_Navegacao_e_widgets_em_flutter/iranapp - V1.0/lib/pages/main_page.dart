@@ -41,12 +41,7 @@ class _MainPageState extends State<MainPage> {
                       context,
                       MaterialPageRoute(
                         builder:
-                            (context) => DadosCadastraisPage(
-                              texto: "Dados Cadastrais",
-                              dados: ["Nome", "Endereco"],
-                            ),
-                      ),
-                    );
+                            (context) => DadosCadastraisPage()));
                   },
                 ),
                 Divider(),
