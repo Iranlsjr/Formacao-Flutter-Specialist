@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iranapp/repositories/linguagens_repository.dart';
 import 'package:iranapp/repositories/nivel_repository.dart';
 import 'package:iranapp/shared/widgets/text_label.dart';
 
@@ -16,10 +17,13 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   var nivelRepository = NivelRepository();
   var niveis = [];
   var nivelSelecionado = "";
-
+  var linguagensRepository = LinguagensRepository();
+  var linguagens = [];
+  var linguagensSelecionadas = [];
   @override
   void initState() {
     niveis = nivelRepository.retornaNiveis();
+    linguagens = linguagensRepository.retornaLinguagens();
     super.initState();
   }
 
@@ -29,13 +33,12 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
       appBar: AppBar(title: Text("Meus Dados Cadastrais")),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
             TextLabel(texto: "Nome"),
             TextField(controller: nomeController),
 
-            //DATA NASCIMENTO
+            //DATA NASCIMENTO --------------------------------------------------------------------------------------
             TextLabel(texto: "Data de Nascimento"),
             TextField(
               controller: dataNascimentoController,
@@ -43,9 +46,8 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
               onTap: () async {
                 var data = await showDatePicker(
                   context: context,
-                  initialDate: DateTime(2000, 1, 1),
-                  firstDate: DateTime(1900, 5, 20),
-                  lastDate: DateTime(2023, 10, 23),
+                  firstDate: DateTime(2007, 1, 01),
+                  lastDate: DateTime(5000, 12, 01),
                 );
                 if (data != null) {
                   dataNascimentoController.text = data.toString();
@@ -54,7 +56,7 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
               },
             ),
 
-            //NÍVEL DE EXPERIÊNCIA
+            //NÍVEL DE EXPERIÊNCIA------------------------------------------------------
             TextLabel(texto: "Nível de Experiência"),
             Column(
               children:
@@ -67,7 +69,7 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
                           groupValue: nivelSelecionado,
                           onChanged: (value) {
                             setState(() {
-                            nivelSelecionado = value.toString();
+                              nivelSelecionado = value.toString();
                             });
                           },
                         ),
@@ -75,7 +77,30 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
                       .toList(),
             ),
 
-            //BOTÃO SALVAR
+            //LINGUAGENS CHECKBOX ----------------------------------------------------
+            TextLabel(texto: "Linguagens"),
+            Column(
+              children:
+                  linguagens
+                      .map(
+                        (linguagem) => CheckboxListTile(
+                          title: Text(linguagem),
+                          value: linguagensSelecionadas.contains(linguagem),
+                          onChanged: (bool? value) {
+                            setState(() { 
+                            if (value!){
+                              linguagensSelecionadas.add(linguagem);
+                            } else  {
+                              linguagensSelecionadas.remove(linguagem);
+                            }
+                            });
+                          },
+                        ),
+                      )
+                      .toList(),
+            ),
+
+            //BOTÃO SALVAR----------------------------------------------------------------
             TextButton(
               onPressed: () {
                 print(nomeController.text);
