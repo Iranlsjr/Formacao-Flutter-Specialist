@@ -20,6 +20,8 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   var linguagensRepository = LinguagensRepository();
   var linguagens = [];
   var linguagensSelecionadas = [];
+  double salarioEscolhido = 0;
+
   @override
   void initState() {
     niveis = nivelRepository.retornaNiveis();
@@ -57,7 +59,9 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
             ),
 
             //NÍVEL DE EXPERIÊNCIA------------------------------------------------------
+            
             TextLabel(texto: "Nível de Experiência"),
+            Divider(),
             Column(
               children:
                   niveis
@@ -78,7 +82,9 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
             ),
 
             //LINGUAGENS CHECKBOX ----------------------------------------------------
+            Divider(),
             TextLabel(texto: "Linguagens"),
+            Divider(),
             Column(
               children:
                   linguagens
@@ -99,6 +105,23 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
                       )
                       .toList(),
             ),
+
+            // PRETENÇÃO SALARIAL --------------------------------------------------------------
+            Divider(),
+            TextLabel(texto: "Pretenção Salárial. R\$ ${salarioEscolhido.toStringAsFixed(2).toString()}"),
+            Divider(),
+            Slider(min: 0, max:  15000, value: salarioEscolhido, 
+            onChanged: (double value){
+              setState(() {
+                salarioEscolhido = value;
+              });
+            }),
+            
+
+            
+
+
+
 
             //BOTÃO SALVAR----------------------------------------------------------------
             TextButton(
