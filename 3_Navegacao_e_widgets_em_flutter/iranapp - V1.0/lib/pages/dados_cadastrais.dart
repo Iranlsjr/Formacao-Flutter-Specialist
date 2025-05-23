@@ -21,12 +21,22 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
   var linguagens = [];
   var linguagensSelecionadas = [];
   double salarioEscolhido = 0;
+  int tempoExperiencia = 0;
 
   @override
   void initState() {
     niveis = nivelRepository.retornaNiveis();
     linguagens = linguagensRepository.retornaLinguagens();
     super.initState();
+  }
+
+  //RETORNAR ANOS DE EXPERIENCIA
+  List<DropdownMenuItem> returnItens(int quantidadeMaxima) {
+    var itens = <DropdownMenuItem>[];
+    for (var i = 0; i < quantidadeMaxima; i++) {
+      itens.add(DropdownMenuItem(child: Text(i.toString()), value: i));
+    }
+    return itens;
   }
 
   @override
@@ -59,8 +69,11 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
             ),
 
             //NÍVEL DE EXPERIÊNCIA------------------------------------------------------
-            
-            TextLabel(texto: "Nível de Experiência"),
+            Column(
+              children: [
+                TextLabel(texto: "Nível de Experiência"),
+              ],
+            ),
             Divider(),
             Column(
               children:
@@ -83,7 +96,11 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
 
             //LINGUAGENS CHECKBOX ----------------------------------------------------
             Divider(),
-            TextLabel(texto: "Linguagens"),
+            Column(
+              children: [
+                TextLabel(texto: "Linguagens"),
+              ],
+            ),
             Divider(),
             Column(
               children:
@@ -93,12 +110,12 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
                           title: Text(linguagem),
                           value: linguagensSelecionadas.contains(linguagem),
                           onChanged: (bool? value) {
-                            setState(() { 
-                            if (value!){
-                              linguagensSelecionadas.add(linguagem);
-                            } else  {
-                              linguagensSelecionadas.remove(linguagem);
-                            }
+                            setState(() {
+                              if (value!) {
+                                linguagensSelecionadas.add(linguagem);
+                              } else {
+                                linguagensSelecionadas.remove(linguagem);
+                              }
                             });
                           },
                         ),
@@ -106,22 +123,41 @@ class _DadosCadastraisPageState extends State<DadosCadastraisPage> {
                       .toList(),
             ),
 
+            // TEMPO DE EXPERIÊNCIA--------------------------------------------------------
+            Divider(),
+            Column(children: [TextLabel(texto: "Tempo de Experiência em Anos")]),
+            DropdownButton(
+              value: tempoExperiencia,
+              isExpanded: true,
+              items: returnItens(50),
+              onChanged: (value) {
+                setState(() {
+                  tempoExperiencia = int.parse(value.toString());
+                });
+              },
+            ),
+
             // PRETENÇÃO SALARIAL --------------------------------------------------------------
             Divider(),
-            TextLabel(texto: "Pretenção Salárial. R\$ ${salarioEscolhido.toStringAsFixed(2).toString()}"),
+            Column(
+              children: [
+                TextLabel(
+                  texto:
+                      "Pretenção Salárial. R\$ ${salarioEscolhido.toStringAsFixed(2).toString()}",
+                ),
+              ],
+            ),
             Divider(),
-            Slider(min: 0, max:  15000, value: salarioEscolhido, 
-            onChanged: (double value){
-              setState(() {
-                salarioEscolhido = value;
-              });
-            }),
-            
-
-            
-
-
-
+            Slider(
+              min: 0,
+              max: 15000,
+              value: salarioEscolhido,
+              onChanged: (double value) {
+                setState(() {
+                  salarioEscolhido = value;
+                });
+              },
+            ),
 
             //BOTÃO SALVAR----------------------------------------------------------------
             TextButton(
